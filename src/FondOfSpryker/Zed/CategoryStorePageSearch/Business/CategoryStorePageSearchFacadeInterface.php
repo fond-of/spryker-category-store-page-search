@@ -1,0 +1,9 @@
+<?php
+
+namespace FondOfSpryler\Zed\CategoryStorePageSearch\Business;
+
+use Spryker\Zed\CategoryPageSearch\Business\CategoryPageSearchFacadeInterface as SprykerCategoryPageSearchFacadeInterface;
+
+interface CategoryStorePageSearchFacadeInterface extends SprykerCategoryPageSearchFacadeInterface
+{
+}

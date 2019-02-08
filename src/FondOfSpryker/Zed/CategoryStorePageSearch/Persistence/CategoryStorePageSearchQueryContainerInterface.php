@@ -1,0 +1,9 @@
+<?php
+
+namespace FondOfSpryker\Zed\CategoryStorePageSearch\Persistence;
+
+use Spryker\Zed\CategoryPageSearch\Persistence\CategoryPageSearchQueryContainerInterface as SprykerCategoryPageSearchQueryContainerInterface;
+
+interface CategoryStorePageSearchQueryContainerInterface extends SprykerCategoryPageSearchQueryContainerInterface
+{
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace FondOfSpryker\Zed\CategoryStorePageSearch\Persistence;
+
+use Spryker\Zed\CategoryPageSearch\Persistence\CategoryPageSearchPersistenceFactory as SprykerCategoryPageSearchPersistenceFactory;
+
+
+class CategoryStorePageSearchPersistenceFactory extends SprykerCategoryPageSearchPersistenceFactory
+{
+}

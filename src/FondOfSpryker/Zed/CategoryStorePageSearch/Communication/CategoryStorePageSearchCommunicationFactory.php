@@ -1,0 +1,9 @@
+<?php
+
+namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication;
+
+use Spryker\Zed\CategoryPageSearch\Communication\CategoryPageSearchCommunicationFactory as SprykerCategoryPageSearchCommunicationFactory;
+
+class CategoryStorePageSearchCommunicationFactory extends SprykerCategoryPageSearchCommunicationFactory
+{
+}
