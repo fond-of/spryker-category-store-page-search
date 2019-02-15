@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryler\Zed\CategoryStorePageSearch\Business;
+namespace FondOfSpryker\Zed\CategoryStorePageSearch\Business;
 
 use Spryker\Zed\CategoryPageSearch\Business\CategoryPageSearchFacadeInterface as SprykerCategoryPageSearchFacadeInterface;
 
