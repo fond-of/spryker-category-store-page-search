@@ -8,10 +8,13 @@ use Orm\Zed\CategoryPageSearch\Persistence\SpyCategoryNodePageSearch;
 use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Propel\Runtime\Map\TableMap;
 use Spryker\Shared\CategoryPageSearch\CategoryPageSearchConstants;
+use Spryker\Shared\Log\LoggerTrait;
 use Spryker\Zed\CategoryPageSearch\Business\Search\CategoryNodePageSearch as SprykerCategoryNodePageSearch;
 
 class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
 {
+    use LoggerTrait;
+
     /**
      * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $spyCategoryNodeEntity
      * @param string $localeName
@@ -42,6 +45,22 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
         $spyCategoryNodePageSearchEntity->setLocale($localeName);
         $spyCategoryNodePageSearchEntity->setIsSendingToQueue($this->isSendingToQueue);
         $spyCategoryNodePageSearchEntity->save();
+    }
+
+    /**
+     * @param array $categoryNodeData
+     * @param string $localeName
+     *
+     * @return array
+     */
+    public function mapToSearchData(array $categoryNodeData, $localeName)
+    {
+        return $this->searchFacade
+            ->transformPageMapToDocumentByMapperName(
+                $categoryNodeData,
+                (new LocaleTransfer())->setLocaleName($localeName),
+                CategoryPageSearchConstants::CATEGORY_NODE_RESOURCE_NAME
+            );
     }
 
     /**
