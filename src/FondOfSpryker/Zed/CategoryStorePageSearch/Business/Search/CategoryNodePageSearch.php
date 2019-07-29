@@ -20,6 +20,8 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
      * @param string $localeName
      * @param \Orm\Zed\CategoryPageSearch\Persistence\SpyCategoryNodePageSearch|null $spyCategoryNodePageSearchEntity
      *
+     * @throws
+     *
      * @return void
      */
     protected function storeDataSet(SpyCategoryNode $spyCategoryNodeEntity, $localeName, ?SpyCategoryNodePageSearch $spyCategoryNodePageSearchEntity = null)
@@ -51,6 +53,8 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
      * @param array $categoryNodeData
      * @param string $localeName
      *
+     * @throws
+     *
      * @return array
      */
     public function mapToSearchData(array $categoryNodeData, $localeName)
@@ -66,7 +70,9 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
     /**
      * Retreieve Store Name
      *
-     * @param \Generated\Shared\Transfer\CategoryNodeStorageTransfer $categoryNodeStorageTransfer
+     * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $spyCategoryNodeEntity
+     *
+     * @throws
      *
      * @return string
      */

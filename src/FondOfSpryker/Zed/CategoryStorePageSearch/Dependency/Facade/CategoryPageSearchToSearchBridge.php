@@ -3,7 +3,6 @@
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Shared\Log\LoggerTrait;
 use Spryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchBridge as SprykerCategoryPageSearchToSearchBridge;
 
 class CategoryPageSearchToSearchBridge extends SprykerCategoryPageSearchToSearchBridge implements CategoryPageSearchToSearchInterface
