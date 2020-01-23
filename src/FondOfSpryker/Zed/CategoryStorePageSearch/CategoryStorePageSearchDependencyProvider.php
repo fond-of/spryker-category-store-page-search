@@ -9,6 +9,9 @@ use Spryker\Zed\CategoryPageSearch\CategoryPageSearchDependencyProvider as Spryk
 
 class CategoryStorePageSearchDependencyProvider extends SprykerCategoryPageSearchDependencyProvider
 {
+    public const FACADE_SEARCH = 'FACADE_SEARCH';
+    public const STORE = 'store';
+    
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -17,6 +20,10 @@ class CategoryStorePageSearchDependencyProvider extends SprykerCategoryPageSearc
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = parent::provideBusinessLayerDependencies($container);
+
+        $container[static::STORE] = function (Container $container) {
+            return Store::getInstance();
+        };
 
         $container[self::FACADE_SEARCH] = function (Container $container) {
             return new CategoryPageSearchToSearchBridge($container->getLocator()->search()->facade());

@@ -3,8 +3,8 @@
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface as SprykerCategoryPageSearchToSearchInterface;
+use FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface as FondOfSprykerCategoryPageSearchToSearchInterface;
 
-interface CategoryPageSearchToSearchInterface extends SprykerCategoryPageSearchToSearchInterface
+interface CategoryPageSearchToSearchInterface extends FondOfSprykerCategoryPageSearchToSearchInterface
 {
 }
