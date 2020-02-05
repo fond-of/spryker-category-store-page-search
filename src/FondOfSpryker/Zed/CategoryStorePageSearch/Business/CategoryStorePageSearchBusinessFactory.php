@@ -3,8 +3,7 @@
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Business;
 
 use FondOfSpryker\Zed\CategoryStorePageSearch\Business\Search\CategoryNodePageSearch;
-use Spryker\Shared\Log\LoggerTrait;
-use FondOfSpryker\Zed\CategoryPageSearch\CategoryPageSearchDependencyProvider;
+use FondOfSpryker\Zed\CategoryStorePageSearch\CategoryStorePageSearchDependencyProvider;
 use Spryker\Zed\CategoryPageSearch\Business\CategoryPageSearchBusinessFactory as SprykerCategoryPageSearchBusinessFactory;
 
 /**
@@ -21,19 +20,19 @@ class CategoryStorePageSearchBusinessFactory extends SprykerCategoryPageSearchBu
         return new CategoryNodePageSearch(
             $this->getUtilEncoding(),
             $this->getSearchFacade(),
+            $this->createCategoryNodePageSearchDataMapper(),
             $this->getQueryContainer(),
             $this->getStore(),
             $this->getConfig()->isSendingToQueue()
         );
     }
 
-
     /**
      * @return \FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface
      */
     public function getSearchFacade()
     {
-        return $this->getProvidedDependency(CategoryPageSearchDependencyProvider::FACADE_SEARCH);
+        return $this->getProvidedDependency(CategoryStorePageSearchDependencyProvider::FACADE_SEARCH);
     }
 
     /**
@@ -41,6 +40,6 @@ class CategoryStorePageSearchBusinessFactory extends SprykerCategoryPageSearchBu
      */
     public function getStore()
     {
-        return $this->getProvidedDependency(CategoryPageSearchDependencyProvider::STORE);
+        return $this->getProvidedDependency(CategoryStorePageSearchDependencyProvider::STORE);
     }
 }

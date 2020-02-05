@@ -4,11 +4,10 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Synchro
 
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Synchronization\CategoryPageSynchronizationDataPlugin as SprykerCategoryPageSynchronizationDataPlugin;
 
-
 class CategoryStorePageSynchronizationDataPlugin extends SprykerCategoryPageSynchronizationDataPlugin
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *

@@ -4,15 +4,13 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\L
 
 use Spryker\Shared\Log\LoggerTrait;
 use Spryker\Zed\Category\Dependency\CategoryEvents;
-use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
-use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Event\Listener\CategoryNodeSearchListener as SprykerCategoryNodeSearchListener;
+use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
 /**
- * @method \Spryker\Zed\CategoryPageSearch\Persistence\CategoryPageSearchQueryContainerInterface getQueryContainer()
- * @method \FondOfSpryker\Zed\CategoryPageSearch\Communication\CategoryPageSearchCommunicationFactory getFactory()
- * @method \FondOFSpryker\Zed\CategoryPageSearch\Business\CategoryPageSearchFacadeInterface getFacade()
+ * @method \FondOfSpryker\Zed\CategoryStorePageSearch\Persistence\CategoryStorePageSearchQueryContainerInterface getQueryContainer()
+ * @method \FondOfSpryker\Zed\CategoryStorePageSearch\Communication\CategoryStorePageSearchCommunicationFactory getFactory()
+ * @method \FondOFSpryker\Zed\CategoryStorePageSearch\Business\CategoryStorePageSearchFacadeInterface getFacade()
  */
 class CategoryNodeStoreSearchListener extends SprykerCategoryNodeSearchListener
 {

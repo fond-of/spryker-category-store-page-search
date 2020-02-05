@@ -4,8 +4,8 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch;
 
 use FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade\CategoryPageSearchToSearchBridge;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\CategoryPageSearch\CategoryPageSearchDependencyProvider as SprykerCategoryPageSearchDependencyProvider;
+use Spryker\Zed\Kernel\Container;
 
 class CategoryStorePageSearchDependencyProvider extends SprykerCategoryPageSearchDependencyProvider
 {

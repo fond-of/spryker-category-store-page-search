@@ -3,15 +3,9 @@
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Generated\Shared\Transfer\PageMapTransfer;
-use Spryker\Shared\CategoryPageSearch\CategoryPageSearchConstants;
-use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Log\LoggerTrait;
-use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
-use Spryker\Zed\Search\Dependency\Plugin\NamedPageMapInterface;
 use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Search\CategoryNodeDataPageMapBuilder as SprykerCategoryNodeDataPageMapBuilder;
+use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
  * @method \Spryker\Zed\CategoryPageSearch\Communication\CategoryPageSearchCommunicationFactory getFactory()

@@ -6,5 +6,4 @@ use Spryker\Zed\CategoryPageSearch\Persistence\CategoryPageSearchQueryContainer 
 
 class CategoryStorePageSearchQueryContainer extends SprykerCategoryPageSearchQueryContainer
 {
-
 }

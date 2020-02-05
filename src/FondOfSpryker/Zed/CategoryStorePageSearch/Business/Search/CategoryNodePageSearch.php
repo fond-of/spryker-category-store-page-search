@@ -2,6 +2,7 @@
 
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Business\Search;
 
+use FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\CategoryPageSearch\Persistence\SpyCategoryNodePageSearch;
@@ -10,17 +11,53 @@ use Propel\Runtime\Map\TableMap;
 use Spryker\Shared\CategoryPageSearch\CategoryPageSearchConstants;
 use Spryker\Shared\Log\LoggerTrait;
 use Spryker\Zed\CategoryPageSearch\Business\Search\CategoryNodePageSearch as SprykerCategoryNodePageSearch;
+use Spryker\Zed\CategoryPageSearch\Business\Search\DataMapper\CategoryNodePageSearchDataMapperInterface;
+use Spryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToStoreFacadeInterface;
+use Spryker\Zed\CategoryPageSearch\Dependency\Service\CategoryPageSearchToUtilEncodingInterface;
+use Spryker\Zed\CategoryPageSearch\Persistence\CategoryPageSearchQueryContainerInterface;
 
-class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
+class CategoryNodePageSearch extends SprykerCategoryNodePageSearch implements CategoryNodePageSearchInterface
 {
     use LoggerTrait;
+
+    /**
+     * @var \FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface 
+     */
+    protected $searchFacade;
+
+    public function __construct(
+        CategoryPageSearchToUtilEncodingInterface $utilEncoding,
+        CategoryPageSearchToSearchInterface $searchFacade,
+        CategoryNodePageSearchDataMapperInterface $categoryNodePageSearchDataMapper,
+        CategoryPageSearchQueryContainerInterface $queryContainer,
+        CategoryPageSearchToStoreFacadeInterface $storeFacade,
+        bool $isSendingToQueue
+    ) {
+        parent::__construct($utilEncoding, $categoryNodePageSearchDataMapper, $queryContainer, $storeFacade,
+            $isSendingToQueue);
+        $this->searchFacade = $searchFacade;
+    }
+
+    /**
+     * @param array $categoryNodeData
+     * @param string $localeName
+     *
+     * @return array
+     */
+    public function mapToSearchData(array $categoryNodeData, $localeName)
+    {
+        return $this->searchFacade
+            ->transformPageMapToDocumentByMapperName(
+                $categoryNodeData,
+                (new LocaleTransfer())->setLocaleName($localeName),
+                CategoryPageSearchConstants::CATEGORY_NODE_RESOURCE_NAME
+            );
+    }
 
     /**
      * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $spyCategoryNodeEntity
      * @param string $localeName
      * @param \Orm\Zed\CategoryPageSearch\Persistence\SpyCategoryNodePageSearch|null $spyCategoryNodePageSearchEntity
-     *
-     * @throws
      *
      * @return void
      */
@@ -50,29 +87,9 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch
     }
 
     /**
-     * @param array $categoryNodeData
-     * @param string $localeName
-     *
-     * @throws
-     *
-     * @return array
-     */
-    public function mapToSearchData(array $categoryNodeData, $localeName)
-    {
-        return $this->searchFacade
-            ->transformPageMapToDocumentByMapperName(
-                $categoryNodeData,
-                (new LocaleTransfer())->setLocaleName($localeName),
-                CategoryPageSearchConstants::CATEGORY_NODE_RESOURCE_NAME
-            );
-    }
-
-    /**
      * Retreieve Store Name
      *
      * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $spyCategoryNodeEntity
-     *
-     * @throws
      *
      * @return string
      */
