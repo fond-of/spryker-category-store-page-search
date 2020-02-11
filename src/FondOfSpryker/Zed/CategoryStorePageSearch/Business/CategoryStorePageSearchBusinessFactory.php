@@ -22,7 +22,7 @@ class CategoryStorePageSearchBusinessFactory extends SprykerCategoryPageSearchBu
             $this->getSearchFacade(),
             $this->createCategoryNodePageSearchDataMapper(),
             $this->getQueryContainer(),
-            $this->getStore(),
+            $this->getStoreFacade(),
             $this->getConfig()->isSendingToQueue()
         );
     }
@@ -33,13 +33,5 @@ class CategoryStorePageSearchBusinessFactory extends SprykerCategoryPageSearchBu
     public function getSearchFacade()
     {
         return $this->getProvidedDependency(CategoryStorePageSearchDependencyProvider::FACADE_SEARCH);
-    }
-
-    /**
-     * @return \Spryker\Shared\Kernel\Store
-     */
-    public function getStore()
-    {
-        return $this->getProvidedDependency(CategoryStorePageSearchDependencyProvider::STORE);
     }
 }
