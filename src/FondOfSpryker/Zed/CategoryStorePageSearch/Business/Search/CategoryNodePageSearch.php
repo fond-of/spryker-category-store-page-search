@@ -41,8 +41,13 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch implements Ca
         CategoryPageSearchToStoreFacadeInterface $storeFacade,
         bool $isSendingToQueue
     ) {
-        parent::__construct($utilEncoding, $categoryNodePageSearchDataMapper, $queryContainer, $storeFacade,
-            $isSendingToQueue);
+        parent::__construct(
+            $utilEncoding,
+            $categoryNodePageSearchDataMapper,
+            $queryContainer,
+            $storeFacade,
+            $isSendingToQueue
+        );
         $this->searchFacade = $searchFacade;
     }
 

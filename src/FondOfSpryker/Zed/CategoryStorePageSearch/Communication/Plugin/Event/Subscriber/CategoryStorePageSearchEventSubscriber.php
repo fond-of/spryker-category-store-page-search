@@ -4,7 +4,6 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\S
 
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryAttributeSearchPublishListener;
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryPageSearchPublishListener;
-use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreSearchListener;
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreSearchPublishListener;
 use Spryker\Zed\Category\Dependency\CategoryEvents;
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Event\Subscriber\CategoryPageSearchEventSubscriber as SprykerCategoryPageSearchEventSubscriber;

@@ -5,7 +5,7 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
 
-class CategoryStoreStorePageSearchToSearchBridge  implements CategoryStorePageSearchToSearchInterface
+class CategoryStoreStorePageSearchToSearchBridge implements CategoryStorePageSearchToSearchInterface
 {
     /**
      * @var \Spryker\Zed\Search\Business\SearchFacadeInterface
@@ -26,8 +26,6 @@ class CategoryStoreStorePageSearchToSearchBridge  implements CategoryStorePageSe
      * @param $mapperName
      *
      * @return array
-     *
-     * @throws
      */
     public function transformPageMapToDocumentByMapperName(array $data, LocaleTransfer $localeTransfer, $mapperName): array
     {

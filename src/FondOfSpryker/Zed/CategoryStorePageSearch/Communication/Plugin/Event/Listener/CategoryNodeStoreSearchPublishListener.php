@@ -6,5 +6,4 @@ use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Event\Listener\CategoryN
 
 class CategoryNodeStoreSearchPublishListener extends CategoryNodeSearchPublishListener
 {
-
 }
