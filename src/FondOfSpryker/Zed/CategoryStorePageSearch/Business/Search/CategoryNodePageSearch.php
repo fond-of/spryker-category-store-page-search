@@ -2,7 +2,7 @@
 
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Business\Search;
 
-use FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface;
+use FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade\CategoryStorePageSearchToSearchInterface;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\CategoryPageSearch\Persistence\SpyCategoryNodePageSearch;
@@ -21,13 +21,21 @@ class CategoryNodePageSearch extends SprykerCategoryNodePageSearch implements Ca
     use LoggerTrait;
 
     /**
-     * @var \FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface 
+     * @var \FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface
      */
     protected $searchFacade;
 
+    /**
+     * @param \Spryker\Zed\CategoryPageSearch\Dependency\Service\CategoryPageSearchToUtilEncodingInterface $utilEncoding
+     * @param \FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade\CategoryStorePageSearchToSearchInterface $searchFacade
+     * @param \Spryker\Zed\CategoryPageSearch\Business\Search\DataMapper\CategoryNodePageSearchDataMapperInterface $categoryNodePageSearchDataMapper
+     * @param \Spryker\Zed\CategoryPageSearch\Persistence\CategoryPageSearchQueryContainerInterface $queryContainer
+     * @param \Spryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToStoreFacadeInterface $storeFacade
+     * @param bool $isSendingToQueue
+     */
     public function __construct(
         CategoryPageSearchToUtilEncodingInterface $utilEncoding,
-        CategoryPageSearchToSearchInterface $searchFacade,
+        CategoryStorePageSearchToSearchInterface $searchFacade,
         CategoryNodePageSearchDataMapperInterface $categoryNodePageSearchDataMapper,
         CategoryPageSearchQueryContainerInterface $queryContainer,
         CategoryPageSearchToStoreFacadeInterface $storeFacade,
