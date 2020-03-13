@@ -2,15 +2,17 @@
 
 namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Subscriber;
 
-use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryPageSearchListener;
+use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryAttributeSearchPublishListener;
+use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryPageSearchPublishListener;
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreSearchListener;
+use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreSearchPublishListener;
 use Spryker\Zed\Category\Dependency\CategoryEvents;
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Event\Subscriber\CategoryPageSearchEventSubscriber as SprykerCategoryPageSearchEventSubscriber;
 use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 
 /**
  * @method \FondOfSpryker\Zed\CategoryPageSearch\Communication\CategoryPageSearchCommunicationFactory getFactory()
- * @method \FondOfSpryker\Zed\CategoryPageSearch\Business\CategoryPageSearchFacadeInterface getFacade()
+ * @method \FondOfSpryker\Zed\CategoryStorePageSearch\Business\CategoryStorePageSearchFacadeInterface getFacade()
  */
 class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEventSubscriber
 {
@@ -48,17 +50,7 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
      */
     protected function addCategoryPageSearchPublishListener(EventCollectionInterface $eventCollection)
     {
-        $eventCollection->addListenerQueued(CategoryEvents::CATEGORY_NODE_PUBLISH, new CategoryNodeStoreSearchListener());
-    }
-
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
-    protected function addCategoryPageSearchUnPublishListener(EventCollectionInterface $eventCollection)
-    {
-        $eventCollection->addListenerQueued(CategoryEvents::CATEGORY_NODE_UNPUBLISH, new CategoryNodeStoreSearchListener());
+        $eventCollection->addListenerQueued(CategoryEvents::CATEGORY_NODE_PUBLISH, new CategoryNodeStoreSearchPublishListener());
     }
 
     /**
@@ -68,7 +60,7 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
      */
     protected function addCategoryNodeSearchCreateListener(EventCollectionInterface $eventCollection)
     {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_NODE_CREATE, new CategoryNodeStoreSearchListener());
+        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_NODE_CREATE, new CategoryNodeStoreSearchPublishListener());
     }
 
     /**
@@ -78,17 +70,7 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
      */
     protected function addCategoryNodeSearchUpdateListener(EventCollectionInterface $eventCollection)
     {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_NODE_UPDATE, new CategoryNodeStoreSearchListener());
-    }
-
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
-    protected function addCategoryNodeSearchDeleteListener(EventCollectionInterface $eventCollection)
-    {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_NODE_DELETE, new CategoryNodeStoreSearchListener());
+        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_NODE_UPDATE, new CategoryNodeStoreSearchPublishListener());
     }
 
     /**
@@ -98,7 +80,7 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
      */
     protected function addCategoryNodeCategoryPageSearchCreateListener(EventCollectionInterface $eventCollection)
     {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_CREATE, new CategoryNodeStoreCategoryPageSearchListener());
+        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_CREATE, new CategoryNodeStoreCategoryPageSearchPublishListener());
     }
 
     /**
@@ -108,7 +90,7 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
      */
     protected function addCategoryNodeCategoryPageSearchUpdateListener(EventCollectionInterface $eventCollection)
     {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_UPDATE, new CategoryNodeStoreCategoryPageSearchListener());
+        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_UPDATE, new CategoryNodeStoreCategoryPageSearchPublishListener());
     }
 
     /**
@@ -116,8 +98,18 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
      *
      * @return void
      */
-    protected function addCategoryNodeCategoryPageSearchDeleteListener(EventCollectionInterface $eventCollection)
+    protected function addCategoryNodeCategoryAttributeSearchCreateListener(EventCollectionInterface $eventCollection)
     {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_DELETE, new CategoryNodeStoreCategoryPageSearchListener());
+        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_ATTRIBUTE_CREATE, new CategoryNodeStoreCategoryAttributeSearchPublishListener());
+    }
+
+    /**
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
+     *
+     * @return void
+     */
+    protected function addCategoryNodeCategoryAttributeSearchUpdateListener(EventCollectionInterface $eventCollection)
+    {
+        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_ATTRIBUTE_UPDATE, new CategoryNodeStoreCategoryAttributeSearchPublishListener());
     }
 }

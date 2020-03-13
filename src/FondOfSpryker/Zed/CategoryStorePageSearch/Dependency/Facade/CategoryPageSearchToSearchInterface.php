@@ -1,9 +1,0 @@
-<?php
-
-namespace FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade;
-
-use FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface as FondOfSprykerCategoryPageSearchToSearchInterface;
-
-interface CategoryPageSearchToSearchInterface extends FondOfSprykerCategoryPageSearchToSearchInterface
-{
-}
