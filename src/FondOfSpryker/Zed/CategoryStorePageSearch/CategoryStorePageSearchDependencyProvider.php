@@ -2,8 +2,7 @@
 
 namespace FondOfSpryker\Zed\CategoryStorePageSearch;
 
-use FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade\CategoryPageSearchToSearchBridge;
-use Spryker\Shared\Kernel\Store;
+use FondOfSpryker\Zed\CategoryStorePageSearch\Dependency\Facade\CategoryStoreStorePageSearchToSearchBridge;
 use Spryker\Zed\CategoryPageSearch\CategoryPageSearchDependencyProvider as SprykerCategoryPageSearchDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
@@ -16,12 +15,12 @@ class CategoryStorePageSearchDependencyProvider extends SprykerCategoryPageSearc
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    public function provideBusinessLayerDependencies(Container $container)
+    public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
         $container[self::FACADE_SEARCH] = function (Container $container) {
-            return new CategoryPageSearchToSearchBridge($container->getLocator()->search()->facade());
+            return new CategoryStoreStorePageSearchToSearchBridge($container->getLocator()->search()->facade());
         };
 
         return $container;

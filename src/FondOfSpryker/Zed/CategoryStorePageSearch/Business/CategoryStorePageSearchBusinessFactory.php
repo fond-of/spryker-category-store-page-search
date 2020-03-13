@@ -5,6 +5,7 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch\Business;
 use FondOfSpryker\Zed\CategoryStorePageSearch\Business\Search\CategoryNodePageSearch;
 use FondOfSpryker\Zed\CategoryStorePageSearch\CategoryStorePageSearchDependencyProvider;
 use Spryker\Zed\CategoryPageSearch\Business\CategoryPageSearchBusinessFactory as SprykerCategoryPageSearchBusinessFactory;
+use Spryker\Zed\EventBehavior\EventBehaviorConfig;
 
 /**
  * @method \Spryker\Zed\CategoryPageSearch\CategoryPageSearchConfig getConfig()
@@ -29,6 +30,8 @@ class CategoryStorePageSearchBusinessFactory extends SprykerCategoryPageSearchBu
 
     /**
      * @return \FondOfSpryker\Zed\CategoryPageSearch\Dependency\Facade\CategoryPageSearchToSearchInterface
+     *
+     * @throws
      */
     public function getSearchFacade()
     {
