@@ -21,9 +21,9 @@
     }
   ],
   "require": {
-    "php": ">=7.2",
-    "fond-of-spryker/category-page-search": "dev-spryker_upgrade",
-    "spryker/category-page-search": "^1.5.0"
+    "php": ">=7.3",
+    "fond-of-spryker/category-page-search": "dev-spryker_upgrade || dev-2022-spryker-upgrade",
+    "spryker/category-page-search": "^1.5.0 || ^2.2.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "^0.14.7",
