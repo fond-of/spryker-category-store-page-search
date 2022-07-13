@@ -5,9 +5,7 @@ namespace FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\S
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryAttributeSearchPublishListener;
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreCategoryPageSearchPublishListener;
 use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryNodeStoreSearchPublishListener;
-use FondOfSpryker\Zed\CategoryStorePageSearch\Communication\Plugin\Event\Listener\CategoryStoreNodeCategoryAttributeSearchListener;
 use Spryker\Zed\Category\Dependency\CategoryEvents;
-use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Event\Listener\CategoryNodeCategoryAttributeSearchListener;
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Event\Subscriber\CategoryPageSearchEventSubscriber as SprykerCategoryPageSearchEventSubscriber;
 use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 
@@ -112,15 +110,5 @@ class CategoryStorePageSearchEventSubscriber extends SprykerCategoryPageSearchEv
     protected function addCategoryNodeCategoryAttributeSearchUpdateListener(EventCollectionInterface $eventCollection)
     {
         $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_ATTRIBUTE_UPDATE, new CategoryNodeStoreCategoryAttributeSearchPublishListener());
-    }
-
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
-    protected function addCategoryNodeCategoryAttributeSearchDeleteListener(EventCollectionInterface $eventCollection)
-    {
-        $eventCollection->addListenerQueued(CategoryEvents::ENTITY_SPY_CATEGORY_ATTRIBUTE_DELETE, new CategoryStoreNodeCategoryAttributeSearchListener());
     }
 }
